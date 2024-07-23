@@ -3,7 +3,8 @@ Exposing DeepFake Videos By Detecting Face Warping Artifacts
 Yuezun Li, Siwei Lyu
 https://arxiv.org/abs/1811.00656
 """
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from resolution_network import ResoNet
 from solver import Solver
 from easydict import EasyDict as edict
@@ -22,7 +23,7 @@ print('***********')
 # Parse config
 cfg_file = 'cfgs/res50.yml'
 with open(cfg_file, 'r') as f:
-    cfg = edict(yaml.load(f))
+    cfg = edict(yaml.safe_load(f))
 sample_num = 10
 
 # Employ dlib to extract face area and landmark points

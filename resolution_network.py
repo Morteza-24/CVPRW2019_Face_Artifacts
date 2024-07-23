@@ -5,9 +5,10 @@ https://arxiv.org/abs/1811.00656
 """
 
 from tf_utils import utils as tfutils
-import tensorflow as tf
-import tensorflow.contrib.slim as slim
-from tensorflow.contrib.slim.python.slim.nets import resnet_v1, vgg
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+import tf_slim as slim
+from tf_slim.nets import resnet_v1, vgg
 
 
 class ResoNet(object):

@@ -175,10 +175,10 @@ def cut_head(imgs, point, seed=None):
         np.random.seed(seed)
     delta_x = np.random.randint(delta_x)
     delta_y = np.random.randint(delta_y)
-    x1_ = np.int(np.maximum(0, x1 - delta_x))
-    x2_ = np.int(np.minimum(w-1, x2 + delta_x))
-    y1_ = np.int(np.maximum(0, y1 - delta_y))
-    y2_ = np.int(np.minimum(h-1, y2 + delta_y * 0.5))
+    x1_ = int(np.maximum(0, x1 - delta_x))
+    x2_ = int(np.minimum(w-1, x2 + delta_x))
+    y1_ = int(np.maximum(0, y1 - delta_y))
+    y2_ = int(np.minimum(h-1, y2 + delta_y * 0.5))
     imgs_new = []
     for i, im in enumerate(imgs):
         im = im[y1_:y2_, x1_:x2_, :]

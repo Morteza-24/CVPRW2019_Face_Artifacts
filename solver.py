@@ -3,9 +3,10 @@ Exposing DeepFake Videos By Detecting Face Warping Artifacts
 Yuezun Li, Siwei Lyu
 https://arxiv.org/abs/1811.00656
 """
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import os
-import tensorflow.contrib.slim as slim
+import tf_slim as slim
 pwd = os.path.dirname(__file__)
 
 class Solver(object):
