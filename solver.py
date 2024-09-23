@@ -74,17 +74,19 @@ class Solver(object):
         }
 
         fetch_list = [
-            self.train_op,
             self.summary,
+            self.train_op,
             self.net.prob,
             self.net.net_loss,
             self.net.total_loss,
-            self.net.weights
+            # self.net.weights
         ]
-        _, summary, prob, net_loss, total_loss, weights \
-            = self.sess.run(fetch_list, feed_dict=feed_dict)
+        # _, summary, prob, net_loss, total_loss, weights \
+        #     = self.sess.run(fetch_list, feed_dict=feed_dict)
+        _, summary, prob, net_loss, total_loss = self.sess.run(fetch_list, feed_dict=feed_dict)
 
-        return summary, prob, net_loss, total_loss, weights
+        # return summary, prob, net_loss, total_loss, weights
+        return summary, prob, net_loss, total_loss
 
     def save(self, step):
         """ Save checkpoints """
@@ -146,6 +148,3 @@ class Solver(object):
         """List all variables in checkpoint"""
         saved_vars = tf.contrib.framework.list_variables(path)  # List of tuples (name, shape)
         return saved_vars
-
-
-
